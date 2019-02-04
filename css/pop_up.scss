@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,900');
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+// =====================
+// Menu styles mixin
+// =====================
+
+@mixin menu-style($color-change) {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: right;
+  padding: 3rem 3rem 0 3rem;
+  cursor: pointer;
+  color: $color-change;
+}
+
+// =====================
+// Menu
+// =====================
+
+header p.menu {
+ @include menu-style(darken(#6b6b6b, 15%));
+  
+  &:hover {
+    color: #d95d39;
+  }
+}
+
+// =====================
+// MAIN AREA
+// =====================
+
+div.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #eaeaea;
+  
+  div.main {
+  padding: 10rem 4rem 0rem 4rem;
+ 
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1.3rem;
+    color: darken(#6b6b6b, 15%);
+    letter-spacing: 2px;
+    }
+        
+    &::before {
+      content:"";
+      width: 60%;
+      height: 5px;
+      background-color: #d95d39;
+      display: block;
+      position: relative;
+      top: 60px;      
+    }
+  }
+  
+  p.filler {
+    color: #6b6b6b;
+    font-size: 1.3rem;
+    padding: 0rem .70rem;
+  }
+}
+
+// =====================
+// Pop-up Menu
+// =====================
+
+#menu-area {
+  width: 100%;
+  height: 100vh;
+  background-color: #d95d39;
+  position: absolute;
+  opacity: 0;
+  display: none;
+  
+  .close {
+    @include menu-style(#eaeaea);
+    
+    &:hover {
+    color: #59c3c3;
+  }
+  }
+  
+  p.welcome {
+    padding: 10rem 6rem 1rem 4rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #eaeaea;
+    letter-spacing: 1px;
+    
+    .dot {
+      color: #59c3c3;
+    }
+  }
+  ul.menu-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    
+    li {
+      padding: 1rem 0.5rem;
+      margin: 0 50px;
+      color: #eaeaea;
+      font-size: 1.5rem;
+      text-transform: lowercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      
+      &:hover {
+        border-bottom: 5px solid #59c3c3;
+      }
+    }
+  }
+}
+
+// =====================
+// Animation
+// =====================
+
+// --- On opening menu
+@keyframes menuOpen {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+// -- On closing menu
+@keyframes menuClose {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
